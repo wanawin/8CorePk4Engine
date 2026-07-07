@@ -1,0 +1,27 @@
+Required for Streamlit/GitHub deployment:
+
+MUST upload:
+- app.py
+- requirements.txt
+- VERSION.txt
+- full_pipeline.py
+- core_engine.py
+- rule_daily_portfolio_audit.py
+- c120_trap_engine_v23.py
+- run_trap_integrated.py
+- core_rule_library_stable_only_filtered.csv
+- rules/core_rule_library_stable_only_filtered.csv
+- profiles/ folder
+- data/ folder
+- samples/ folder
+- docs/ folder
+
+Do NOT need to upload:
+- __pycache__/
+- RUN_APP.bat (optional local Windows launcher only)
+
+After deploy, check:
+- visible marker says v3.4
+- C120 engine/rule file status includes core_rule_library_stable_only_filtered.csv READY
+- Scoring profile file status shows all required files READY
+- C120 dynamic preflight status is READY before Step 3

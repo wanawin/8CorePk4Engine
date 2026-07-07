@@ -1,0 +1,3 @@
+file,status,source,notes
+V6_8CORE_EXACT_STREAM_CORE_MEMBER_PROFILES.csv,CREATED,OUTPUTS_FULL_MATRIX_STREAM_CORE_MEMBER_SCORER_V1_2_1DATE_2026_06_25(6).zip,"Derived from matrix member_top1/member_top2/member_top3 boxed candidates joined to packaged history. Source window is 2026-01-14 through 2026-06-17."
+V6_8CORE_STREAMRANK_EVIDENCE_COMPACT.csv,CREATED,OUTPUTS_STREAMRANK_EVIDENCE_MATRIX_REBUILDER_V2_2_AUTOLOCATE_2026_06_25(2).zip,"Filtered watched 8 cores only; includes CORE_TO_STREAM and STREAM_TO_CORE evidence with positive and negative evidence_weight."

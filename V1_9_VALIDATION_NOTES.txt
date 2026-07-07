@@ -1,0 +1,12 @@
+P4 Mirror Ladder App v1.9 validation notes
+
+Syntax check: python -m py_compile app.py PASS
+Function test: profile readiness PASS; scoring sample PASS; bottom-up cut removed exact lowest scores PASS
+
+V6_8CORE_EXACT_STREAM_CORE_MEMBER_PROFILES.csv: rows=1915; size_bytes=938431
+columns=StreamKey, core_str, member_str, opportunity_count, exact_member_hits, core_hits, exact_hit_rate_pct, core_hit_rate_pct, top1_count, top2_count, top3_count, top1_share_pct, avg_best_member_rank, avg_member_score, max_member_score, avg_matrix_final_score, avg_streamrank_score, avg_core_rank_within_stream, avg_stream_rank_within_core, exact_pair_score, sample_tier, usable_exact_pair_signal, source, source_window_start, source_window_end, formula
+
+V6_8CORE_STREAMRANK_EVIDENCE_COMPACT.csv: rows=409126; size_bytes=114369225
+columns=direction, core_str, StreamKey, trait_name, trait_value, numerator, denominator, rate, baseline_rate, lift, support_reliability, evidence_weight, formula
+
+Step 4 rule: one global profile_final_member_score list; bottom-up removal only; no core/stream/member protection.

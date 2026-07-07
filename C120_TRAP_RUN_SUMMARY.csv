@@ -1,0 +1,2 @@
+BUILD_MARKER,mode,input_matrix,input_history,input_member_matrix,input_winners,watched8_cores,matrix_rows,trap_core_locations,trap_member_candidates_all,must40_rows,expansion80_rows,top80_total_rows,winner_audit_rows,leakage_status
+C120_Trap_v2_4_BROWSER_UI_2026-07-04,daily,FULL_DAILY_RULE_MATRIX_ALL_120_CORES.csv,history_updated.csv,DAILY_MEMBER_MATRIX_ALL_CANDIDATES.csv,006182026 pk 4 update history.txt,027 067 138 145 389 457 567 679,9600,329,987,40,40,80,28,PASS

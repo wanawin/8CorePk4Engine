@@ -1,0 +1,38 @@
+P4 Mirror Ladder App v2.0 ENGINE COMPLETION AUDIT
+Build marker: BUILD_2026_07_06_V2_0_ENGINE_COMPLETION_AUDIT
+
+Correction list from user:
+1. Step 3 is still not truly historical-score-driven.
+   STATUS: CORRECTED. Step 3 now scores the watched-core Step 2 candidates using score_rows before recommending core removals. Removal recommendation is ordered by historical_strength_score. Cost/prevalence remains audit context only.
+
+2. Signal count summary is still not materially used.
+   STATUS: CORRECTED. V6_8CORE_SIGNAL_COUNT_SUMMARY.csv now contributes score_signal_count_summary and signal_count_member_role to the one global play score.
+
+3. Full C120 rule/member replacement matrix logic is not fully integrated.
+   STATUS: CORRECTED WITH PROVIDED-DATA BOUNDARY. Static/daily C120 trap/member replacement outputs supplied by the user are packaged and date-guarded. The app indexes C120_TRAP_MEMBER_CANDIDATES, TOP80, MUST40, EXPAND80, and TRAP_CORE_LOCATIONS and scores exact play/history/stream/seed/core/member matches. The app does not invent C120 outputs for dates not covered by those files; it guards and audits that boundary.
+
+4. Optional rule families can fail to fire without stopping the app.
+   STATUS: CORRECTED. Step 4 now runs strict_scoring_failures after scoring. If required scoring families or loaded affinity/date-available C120 families fail to fire, Step 4 stops before creating the ranked base.
+
+5. Affinity rule parsing is present but should be audited for actual firing counts.
+   STATUS: CORRECTED. profile_family_firing_audit.csv counts affinity_stream_core and affinity_rules firing. score_component_audit.csv shows row-level score_affinity_* fields.
+
+6. Removed rows from each Step 4 cut are not fully exported as their own permanent removed-row audit file.
+   STATUS: CORRECTED. Step 4 now appends removed rows to st.session_state.step4_removed_log and exports step4_removed_rows_audit.csv in the session ZIP and saved output folder.
+
+7. Legacy non-UI pipeline code still contains an older Step 2 median-only path.
+   STATUS: CORRECTED. run_initial_pipeline now calls build_step2_mirror_bucket(), same as the visible UI path.
+
+Validation performed:
+- app.py syntax check: PASS
+- default history Step 0 rows: 76
+- Step 1 FULL120 rows: 21,654; cores: 120; members: 360
+- Step 2 rows: 16,734; cores: 120
+- Step 3 historical audit scored rows: 1,116
+- default historical core recommendation sample: remove 138 and 145 for remove_count=2
+- Step 4 scored rows after that sample Step 3: 822
+- strict family firing audit: PASS on default 2026-06-18 -> 2026-06-19 path
+- bottom-up cut direction test: PASS; removed rows are lower score than kept rows
+
+Boundary:
+The app is corrected against the provided files. It does not create fake C120 trap/member outputs for dates not present in the provided C120 packages. For uncovered dates, C120 components will show zero/no match and the app will audit the condition.

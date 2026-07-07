@@ -1,0 +1,27 @@
+P4 Mirror Ladder v3.5 upload checklist
+
+Do upload:
+- app.py
+- requirements.txt
+- VERSION.txt
+- full_pipeline.py
+- core_engine.py
+- rule_daily_portfolio_audit.py
+- c120_trap_engine_v23.py
+- run_trap_integrated.py
+- core_rule_library_stable_only_filtered.csv
+- rules/core_rule_library_stable_only_filtered.csv
+- profiles_required_bundle.zip
+- profiles/profiles_required_bundle.zip
+- data/
+- profiles/
+- docs/
+- samples/
+- IN/
+- outputs/
+
+Do NOT need to upload:
+- RUN_APP.bat
+- __pycache__/
+
+Important: v3.5 no longer requires the loose V6_8CORE_STREAMRANK_EVIDENCE_COMPACT.csv because GitHub/Streamlit upload can fail on large CSVs. It reads that profile from profiles_required_bundle.zip.

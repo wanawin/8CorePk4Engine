@@ -1,0 +1,27 @@
+P4 Mirror Ladder App v3.0 C120 DYNAMIC TEST READY
+BUILD_2026_07_06_V3_0_C120_DYNAMIC_TEST_READY
+
+Scope:
+- Test-ready integration of dynamic C120 stable-rule pipeline into the Mirror Ladder app.
+- This is not labeled final production until user validates real winner/loss behavior.
+
+C120 dynamic preflight logic:
+- Uses rules/core_rule_library_stable_only_filtered.csv.
+- Uses full_pipeline.py + core_engine.py + rule_daily_portfolio_audit.py.
+- Runs from the current uploaded/default history, selected HISTORY_THROUGH, and PLAY_DATE.
+- Certifies seed = previous same-stream result before C120 evidence can affect scoring.
+- Generates fresh FULL_DAILY_RULE_MATRIX_ALL_120_CORES, DAILY_CORE_MATRIX, DAILY_MEMBER_MATRIX, DAILY_MEMBER_PLAYLIST_TOPN, and optional trap outputs.
+- Step 3 and Step 4 are blocked until the dynamic C120 preflight is READY.
+
+Validation performed in container:
+- Python syntax compile: PASS for app.py, full_pipeline.py, core_engine.py, rule_daily_portfolio_audit.py, c120_trap_engine_v23.py, run_trap_integrated.py.
+- Dynamic C120 run on default_history_THROUGH_2026-06-18 with rule library: PASS.
+- Generated play date: 2026-06-19.
+- FULL_DAILY_RULE_MATRIX_ALL_120_CORES rows: 9,600.
+- DAILY_MEMBER_MATRIX_ALL_CANDIDATES rows: 960.
+- Seed alignment certification: PASS.
+- Bad alignment rows: 0.
+- Trap-integrated runner executed and produced trap output package.
+
+Known honest boundary:
+- v3.0 is test-ready. It integrates dynamic C120 rebuilding, but the user still needs to validate live capture/winner/loss behavior before treating it as production.
